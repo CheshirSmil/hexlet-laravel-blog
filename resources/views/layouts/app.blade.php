@@ -17,6 +17,7 @@
 @endif
 
 <body>
+@include('flash::message')
 <div class="container mt-4">
     <div>
         <a href="{{ route('about')}}">О блоге</a>

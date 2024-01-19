@@ -43,8 +43,10 @@ class ArticleController extends Controller
         $article->fill($data);
         $article->save();
 
+        flash('Статья создана!')->success();
+
         return redirect()
-            ->route('articles.index')->with('success', 'Article was added');
+            ->route('articles.index');
     }
 
     public function edit($id)
@@ -63,7 +65,10 @@ class ArticleController extends Controller
 
         $article->fill($data);
         $article->save();
+
+        flash('Изменения сохранены!')->success();
+
         return redirect()
-            ->route('articles.index')->with('sucess', 'Changes saved');
+            ->route('articles.index');
     }
 }
