@@ -43,9 +43,27 @@ class ArticleController extends Controller
         $article->fill($data);
         $article->save();
 
-        // $request->session()->flash('success', 'Article was added');
-
         return redirect()
             ->route('articles.index')->with('success', 'Article was added');
+    }
+
+    public function edit($id)
+    {
+        $article = Article::findOrFail($id);
+        return view('article.edit', compact('article'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $article = Article::findOrFail($id);
+        $data = $this->validate($request, [
+            'name' => 'required|unique:articles,name,' . $article->id,
+            'body' => 'required|min:20',
+        ]);
+
+        $article->fill($data);
+        $article->save();
+        return redirect()
+            ->route('articles.index')->with('sucess', 'Changes saved');
     }
 }
