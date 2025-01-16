@@ -14,14 +14,26 @@ use App\Http\Controllers\ArticleController;
 |
 */
 
+
 Route::get('/', function () {
-    //return view('welcome');
-    return 'hello, world!';
+    return view('welcome');
+    //return 'hello, world!';
 });
 
+
+Route::get('about', function () {
+    return view('about');
+});
+
+Route::get('about', function () {
+    $tags = ['обучение', 'программирование', 'php', 'oop'];
+    return view('about', ['tags' => $tags]);
+});
+
+/*
 Route::get('/about', [PageController::class, 'about'])
     ->name('about');
 
 Route::resource('articles', ArticleController::class);
-
+*/
 
