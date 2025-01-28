@@ -26,6 +26,14 @@ Route::get('/', function () {
 });
 */
 
+/**
 Route::get('about', function () {
     return view('about');
+});
+*/
+
+//добавл в шаблон динам данных с помощью ассоц массива
+Route::get('about', function () {
+    $tags = ['обучение', 'программирование', 'php', 'oop'];
+    return view('about', ['tags' => $tags]);
 });
