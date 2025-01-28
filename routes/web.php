@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PageController;
+use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,8 +34,12 @@ Route::get('about', function () {
 });
 */
 
+/**
 //добавл в шаблон динам данных с помощью ассоц массива
 Route::get('about', function () {
     $tags = ['обучение', 'программирование', 'php', 'oop'];
     return view('about', ['tags' => $tags]);
 });
+*/
+
+Route::get('about', [PageController::class, 'about']);
