@@ -49,6 +49,6 @@ class ArticleController extends Controller
 
         // Редирект на указанный маршрут
         return redirect()
-            ->route('articles.index');
+            ->route('articles.index')->with('success', 'Статья успешно создана');
     }
 }
