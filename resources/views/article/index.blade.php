@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+@section('title', 'Список статей')
 @section('content')
     <h1>Список статей</h1>
     @foreach ($articles as $article)
