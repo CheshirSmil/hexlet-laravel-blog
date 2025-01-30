@@ -9,5 +9,9 @@
         {{-- Используется для очень длинных текстов, которые нужно сократить --}}
         <div>{{Str::limit($article->body, 10)}}</div>
         <a href="{{ route('articles.edit', $article) }}">Edit</a>
+
+        {{ html()->modelForm($article, 'DELETE', route('articles.destroy', $article))->open() }}
+        {{ html()->submit('Delete')->class('btn btn-primary') }}
+        {{ html()->closeModelForm() }}
     @endforeach
 @endsection
