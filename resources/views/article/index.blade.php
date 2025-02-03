@@ -10,8 +10,7 @@
         <div>{{Str::limit($article->body, 10)}}</div>
         <a href="{{ route('articles.edit', $article) }}">Edit</a>
 
-        {{ html()->modelForm($article, 'DELETE', route('articles.destroy', $article))->open() }}
-        {{ html()->submit('Delete')->class('btn btn-primary') }}
-        {{ html()->closeModelForm() }}
+        <a class="text-danger" href="{{ route('articles.destroy', ['id' => $article['id']]) }}" data-method="delete" rel="nofollow"
+            data-confirm="Are you sure?">Удалить</a>
     @endforeach
 @endsection
